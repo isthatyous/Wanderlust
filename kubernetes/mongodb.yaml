@@ -31,7 +31,7 @@ spec:
     metadata:
       labels:
         app: mongodb
-    spec:
+    spec:  # spec section starts here
       containers:
       - name: mongodb
         image: mongo:latest  
@@ -47,7 +47,7 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
-    volumes: 
+      volumes: 
       - name: mongodb-storage
         persistentVolumeClaim:
-          claimName: mongodb-pvc 
+          claimName: mongodb-pvc
