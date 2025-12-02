@@ -9,7 +9,7 @@ spec:
   ports:
   - port: 27017
     name: mongodb
-  clusterIP: None
+    targetPort: 217017
   selector:
     app: mongodb
 ---
@@ -25,14 +25,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mongodb 
-  minReadySeconds: 10 
+      app: mongodb  
   template:
     metadata:
       labels:
         app: mongodb
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
       - name: mongodb
         image: mongo:latest
