@@ -47,8 +47,13 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
-    volumes:
-      - name: mongodb-storage
-        persistentVolumeClaim:
-          claimName: mongodb-pvc
- 
+  volumeClaimTemplates:  
+  - metadata:
+      name: mongodb-storage  
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      storageClassName: manual 
+      resources:
+        requests:
+          storage: 5Gi
