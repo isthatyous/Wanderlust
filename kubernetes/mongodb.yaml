@@ -23,7 +23,7 @@ spec:
     matchLabels:
       app: mongodb 
   serviceName: "mongodb-svc"
-  replicas: 2 
+  replicas: 1
   minReadySeconds: 10 
   template:
     metadata:
