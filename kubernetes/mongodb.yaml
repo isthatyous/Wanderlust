@@ -18,12 +18,14 @@ kind: StatefulSet
 metadata:
   name: mongodb
   namespace: wanderlust
+  labels:
+    app: mongodb
 spec:
+  serviceName: mongodb-svc
+  replicas: 1
   selector:
     matchLabels:
       app: mongodb 
-  serviceName: "mongodb-svc"
-  replicas: 1
   minReadySeconds: 10 
   template:
     metadata:
