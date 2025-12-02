@@ -1,0 +1,53 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: front-container
+    env_file:
+      - ./frontend/.env.sample
+    ports:
+      - "5173:5173"
+    networks:
+      - wanderlust-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: back-container
+    env_file:
+      - ./backend/.env.sample
+    ports:
+      - "31100:8080"
+    networks:
+      - wanderlust-network
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-service
+    ports:
+      - "27017:27017"
+    networks:
+      - wanderlust-network
+    volumes:
+      - mongo-data:/data/db
+
+  redis:
+    image: redis:latest
+    container_name: redis-service
+    ports:
+      - "6379:6379"
+    networks:
+      - wanderlust-network
+    depends_on:
+      - mongodb
+  
+
+networks:
+  wanderlust-network:
+    driver: bridge
+volumes:
+  mongo-data:
