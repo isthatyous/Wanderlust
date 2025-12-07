@@ -38,7 +38,8 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 10Gi
+          storage: 
+      storageClassName: ""
       selector:
         matchLabels:
           pv: mongo-pv-0   
