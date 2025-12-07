@@ -42,7 +42,7 @@ spec:
       storageClassName: ""
       selector:
         matchLabels:
-          pv: mongo-pv-0
+          pv: mongodb-pv-0
 
 ---
 apiVersion: v1
