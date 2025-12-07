@@ -36,10 +36,10 @@ spec:
       name: mongo-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
+      storageClassName: ""
       resources:
         requests:
           storage: 10Gi
-      storageClassName: ""
       selector:
         matchLabels:
           pv: mongodb-pv-0
@@ -58,3 +58,4 @@ spec:
       targetPort: 27017
   selector:
     app: mongodb
+  clusterIP: None 

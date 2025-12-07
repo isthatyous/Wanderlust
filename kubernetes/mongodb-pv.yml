@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: mongodb-pv-0
   labels:
-    pv: mongo-pv-0
+    pv: mongodb-pv-0
 spec:
   capacity:
     storage: 10Gi
@@ -11,5 +11,5 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: ""
-  hostPath:
-    path: /mnt/data/mongodb
+  # hostPath:
+  #   path: /mnt/data/mongodb
