@@ -10,7 +10,7 @@ spec:
   - port: 27017
     name: mongodb
     targetPort: 27017  
-  clusterIP: None  
+  clusterIP: None   
   selector:
     app: mongodb
 ---
@@ -31,7 +31,7 @@ spec:
     metadata:
       labels:
         app: mongodb
-    spec:  # spec section starts here
+    spec:  
       containers:
       - name: mongodb
         image: mongo:latest  

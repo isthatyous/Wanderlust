@@ -5,8 +5,7 @@ metadata:
   namespace: wanderlust
 spec:
   accessModes:
-    - ReadWriteOnce
-  storageClassName: manual
+    - ReadWriteOnce 
   resources:
     requests:
       storage: 5Gi
