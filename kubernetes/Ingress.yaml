@@ -3,10 +3,13 @@ kind: Ingress
 metadata:
   name: wanderlust-ingress
   namespace: wanderlust
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: "wanderlust.local"
+    http:
       paths:
       - path: /
         pathType: Prefix
