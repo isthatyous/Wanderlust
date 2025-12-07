@@ -34,13 +34,12 @@ spec:
       name: mongodb-storage
     spec:
       accessModes: ["ReadWriteOnce"]
-      storageClassName: gp2   
+      storageClassName: gp2   # EKS dynamic EBS
       resources:
         requests:
           storage: 5Gi
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -53,4 +52,4 @@ spec:
     - protocol: TCP
       port: 27017
       targetPort: 27017
-  clusterIP: None   
+  clusterIP: None
