@@ -5,7 +5,7 @@ metadata:
   namespace: wanderlust
   labels:
     app: mongodb
-spec:
+spec: 
   serviceName: mongodb-svc
   replicas: 1
   selector:
